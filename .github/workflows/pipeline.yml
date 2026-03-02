@@ -63,7 +63,17 @@ jobs:
 
       - name: Wait for Deployment rollout
         run: |
-          kubectl rollout status deployment/ecommerce-app --timeout=60s
+          kubectl rollout status deployment/ecommerce-app --timeout=120s
+
+      - name: Diagnostic Check
+        if: always()
+        run: |
+          echo ">>> Pods state:"
+          kubectl get pods
+          echo ">>> Description of a problematic pod:"
+          kubectl describe pod -l app=ecommerce
+          echo ">>> Final apps logs:"
+          kubectl logs -l app=ecommerce --tail=100
 
       - name: Run Lab3 validation script
         run: |
