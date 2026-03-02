@@ -42,6 +42,11 @@ jobs:
           exit-code: 1
           severity: CRITICAL,HIGH
 
+      - name: Run Grading Script
+        run: |
+          chmod +x ./tests/lab1_test.sh
+          ./tests/lab1_test.sh
+
       - name: Run Master Validation Script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
