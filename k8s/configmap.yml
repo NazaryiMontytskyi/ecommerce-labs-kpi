@@ -4,3 +4,6 @@ metadata:
   name: ecommerce-config
 data:
   DB_HOST: "postgres-service"
+  DB_PORT: "5432"
+  DB_NAME: "ecommerce"
+  DB_USER: "postgres"
