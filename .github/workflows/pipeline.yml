@@ -63,7 +63,7 @@ jobs:
 
       - name: Wait for Deployment rollout
         run: |
-          kubectl rollout status deployment/ecommerce-app --timeout=120s
+          kubectl rollout status deployment/ecommerce-app --timeout=60s
 
       - name: Diagnostic Check
         if: always()
