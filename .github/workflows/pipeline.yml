@@ -48,5 +48,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          chmod +x ./tests/lab2_test.sh
-          ./tests/lab2_test.sh
+          chmod +x ./tests/lab2_tests.sh
+          ./tests/lab2_tests.sh
