@@ -1,0 +1,5 @@
+com\lab\ecommerce\product\Product.class
+com\lab\ecommerce\product\ProductController.class
+com\lab\ecommerce\product\ProductRepository.class
+com\lab\ecommerce\shutdown\GracefulShutdownListener.class
+com\lab\ecommerce\EcommerceApplication.class
