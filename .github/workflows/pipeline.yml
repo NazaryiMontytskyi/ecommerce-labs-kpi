@@ -3,7 +3,8 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
+      - lab2
 
 permissions:
   contents: read
