@@ -1,22 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
     <appender name="STDOUT_JSON" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <!-- Map standard fields to required names -->
-            <timestampPattern>yyyy-MM-dd'T'HH:mm:ss.SSSZZ</timestampPattern>
-            <fieldNames>
-                <timestamp>timestamp</timestamp>
-                <message>message</message>
-                <logger>logger</logger>
-                <thread>thread</thread>
-                <levelValue>[ignore]</levelValue>
-            </fieldNames>
+        <target>System.out</target>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <!-- Не додавати зайві line separators -->
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <logLevel />
+                <threadName />
+                <loggerName />
+                <message />
+                <stackTrace />
+            </providers>
         </encoder>
     </appender>
 
+    <!-- Забираємо всі інші appender’и, які можуть писати в stderr -->
     <root level="INFO">
         <appender-ref ref="STDOUT_JSON"/>
     </root>
+
+    <!-- Заглушити статус-логи Logback -->
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 
 </configuration>
