@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - lab3
+      - lab4
 
 permissions:
   contents: read
